@@ -34,7 +34,7 @@
                             <a class="nav-link active" href="#">Tooted</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="teenused.html">Teenused</a>
+                            <a class="nav-link active" aria-current="page" href="teenused.php">Teenused</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Kontakt</a>

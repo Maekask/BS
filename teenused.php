@@ -70,24 +70,19 @@
         </form>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    // Kontrollime, kas vormi väljad on täidetud ja kas kasutaja on nõustunud teenusetingimustega
+{
     if (isset($_GET['HTML']) && isset($_GET['CSS']) && isset($_GET['noustun'])) {
-        // Võtame vormist saadud väärtused
         $html = $_GET['HTML'];
         $css = $_GET['CSS'];
         
-        // Arvutame tulemuse
         $kokku = $html + $css;
 
-        // Kuvame tulemuse
         echo '<div class="container mt-3">';
         echo '<div class="alert alert-success" role="alert">';
         echo 'Tulemus: ' . $kokku;
         echo '</div>';
         echo '</div>';
     } else {
-        // Kui mõni väljadest jäi täitmata või kasutaja ei nõustunud tingimustega, siis kuvame veateate
         echo '<div class="container mt-3">';
         echo '<div class="alert alert-danger" role="alert">';
         echo 'Palun täitke kõik väljad ja nõustuge teenusetingimustega.';

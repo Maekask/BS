@@ -51,6 +51,55 @@
         </nav>
     </div>
 
+    <div class="container mt-5">
+        <h1>Teenuse kalkulaator</h1>
+        <form action="" method="GET">
+            <div class="form-group">
+                <label for="toode1">HTML</label>
+                <input type="number" class="form-control" id="input1" name="HTML" required>
+            </div>
+            <div class="form-group">
+                <label for="toode2">CSS</label>
+                <input type="number" class="form-control" id="input2" name="CSS" required>
+            </div>
+            <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="noustun" name="noustun">
+          <label class="form-check-label" for="noustun">Nõustun teenusetingimustega</label>
+        </div>
+            <button type="submit" class="btn btn-primary">Arvuta</button>
+        </form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    // Kontrollime, kas vormi väljad on täidetud ja kas kasutaja on nõustunud teenusetingimustega
+    if (isset($_GET['HTML']) && isset($_GET['CSS']) && isset($_GET['noustun'])) {
+        // Võtame vormist saadud väärtused
+        $html = $_GET['HTML'];
+        $css = $_GET['CSS'];
+        
+        // Arvutame tulemuse
+        $kokku = $html + $css;
+
+        // Kuvame tulemuse
+        echo '<div class="container mt-3">';
+        echo '<div class="alert alert-success" role="alert">';
+        echo 'Tulemus: ' . $kokku;
+        echo '</div>';
+        echo '</div>';
+    } else {
+        // Kui mõni väljadest jäi täitmata või kasutaja ei nõustunud tingimustega, siis kuvame veateate
+        echo '<div class="container mt-3">';
+        echo '<div class="alert alert-danger" role="alert">';
+        echo 'Palun täitke kõik väljad ja nõustuge teenusetingimustega.';
+        echo '</div>';
+        echo '</div>';
+    }
+}
+?>
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
